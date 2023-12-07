@@ -1,5 +1,4 @@
-'use client'
-import React, { FC } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -7,7 +6,7 @@ interface Props {
   classname: string;
 }
 
-export function Logo ({ classname }: Props) {
+export function Logo({ classname }: Props) {
   return (
     <Link href="/" className={`space-x-2 items-center h-full ${classname}`}>
       <div className="pt-1 h-12 w-12 relative">
