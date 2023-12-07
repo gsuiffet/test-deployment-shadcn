@@ -10,53 +10,53 @@ import { Menu } from '@/components/menu';
 import Link from 'next/link';
 
 const fontSans = FontSans({
-    subsets: ['latin'],
-    variable: '--font-sans',
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
-    title: 'Tokens Studio Tailwind Documentation',
-    description: 'Comprehensive documentation for Tokens Studio Tailwind package',
-    authors: {
-        name: 'Suiffet Guillaume',
-    },
-    keywords: ['Tokens Studio', 'Tailwind', 'Documentation', 'Design Tokens', 'CSS Variables'],
+  title: 'Tokens Studio Tailwind Documentation',
+  description: 'Comprehensive documentation for Tokens Studio Tailwind package',
+  authors: {
+    name: 'Suiffet Guillaume',
+  },
+  keywords: ['Tokens Studio', 'Tailwind', 'Documentation', 'Design Tokens', 'CSS Variables'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <html suppressHydrationWarning={true}>
-        <body lang="en" className={cn('bg-background font-sans antialiased', fontSans.variable)}>
+  return (
+    <html suppressHydrationWarning={true}>
+      <body lang="en" className={cn('bg-background font-sans antialiased', fontSans.variable)}>
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-            <div className="flex flex-col min-h-screen">
-                <Header /> 101
-                <div className="container flex">
-                    <aside className="hidden md:flex w-60">
-                        <Menu />
-                    </aside>
-                    <main>
-                        <div className="w-full md:max-w-[550px] lg:max-w-[980px]">{children}</div>
-                    </main>
-                </div>
-                <footer className="container mt-auto h-14 border-t flex items-center bg-background">
-                    <p className="text-muted-foreground text-xs sm:text-sm">
-                        This website has been made using <strong>Tokens Studio Tailwind</strong>. See the
-                        source code on {/*todo*/}
-                        <Link href="https://www" className="underline">
-                            GitHub
-                        </Link>
-                        .
-                    </p>
-                </footer>
+          <div className="flex flex-col min-h-screen">
+            <Header /> 102
+            <div className="container flex">
+              <aside className="hidden md:flex w-60">
+                <Menu />
+              </aside>
+              <main>
+                <div className="w-full md:max-w-[550px] lg:max-w-[980px]">{children}</div>
+              </main>
             </div>
-            <ToastContainer closeButton={false} autoClose={1500} />
+            <footer className="container mt-auto h-14 border-t flex items-center bg-background">
+              <p className="text-muted-foreground text-xs sm:text-sm">
+                This website has been made using <strong>Tokens Studio Tailwind</strong>. See the
+                source code on {/*todo*/}
+                <Link href="https://www" className="underline">
+                  GitHub
+                </Link>
+                .
+              </p>
+            </footer>
+          </div>
+          <ToastContainer closeButton={false} autoClose={1500} />
         </ThemeProvider>
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }
