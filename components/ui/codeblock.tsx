@@ -2,7 +2,6 @@
 
 import { FC, memo } from 'react'
 
-import { useCopyToClipboard } from '@/lib/hooks/use-copy-to-clipboard'
 import { IconCheck, IconCopy, IconDownload } from '@/components/ui/icons'
 import { Button } from '@/components/ui/button'
 
@@ -52,8 +51,6 @@ export const generateRandomString = (length: number, lowercase = false) => {
 }
 
 const CodeBlock: FC<Props> = memo(({ language, value }) => {
-  const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 })
-
   const downloadAsFile = () => {
     if (typeof window === 'undefined') {
       return
@@ -82,11 +79,6 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
     URL.revokeObjectURL(url)
   }
 
-  const onCopy = () => {
-    if (isCopied) return
-    copyToClipboard(value)
-  }
-
   return (
     <div className="relative w-full font-sans codeblock bg-zinc-950">
       <div className="flex items-center justify-between w-full px-6 py-2 pr-4 bg-zinc-800 text-zinc-100">
@@ -100,15 +92,6 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
           >
             <IconDownload />
             <span className="sr-only">Download</span>
-          </Button>
-          <Button
-            variant="default"
-            size="icon"
-            className="text-xs hover:bg-zinc-800 focus-visible:ring-1 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
-            onClick={onCopy}
-          >
-            {isCopied ? <IconCheck /> : <IconCopy />}
-            <span className="sr-only">Copy code</span>
           </Button>
         </div>
       </div>
