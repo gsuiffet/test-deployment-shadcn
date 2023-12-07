@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <Header /> 102
+            <Header /> 103
             <div className="container flex">
               <aside className="hidden md:flex w-60">
                 <Menu />
